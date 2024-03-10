@@ -3,7 +3,7 @@ export default function App() {
   const subheading = "text-xl font-[anton]";
   const tasks_div = "tasks flex flex-col gap-2 w-full text-justify";
   const li_styling =
-    "flex items-center justify-between gap-2 w-full px-3 py-2 rounded-lg bg-[#fff7]";
+    "flex items-center justify-between shadow gap-2 w-full px-3 py-2 rounded-lg bg-[#fff7]";
   const ul_styling = "list flex flex-col gap-1 font-light whitespace-nowrap";
   const task_styling = "overflow-x-auto no-scrollbar w-full";
 
@@ -58,7 +58,7 @@ export default function App() {
         </div>
 
         <div className={`${ul_styling} w-full pt-4`}>
-          <span className={li_styling}>
+          <span className={`${li_styling} shadow-lg`}>
             <i className="fa-solid fa-caret-right"></i>
             <input
               type="text"
