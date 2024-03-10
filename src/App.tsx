@@ -1,9 +1,11 @@
+//  importing components
 import CompletedSection from "./Components/CompletedSection";
 import ImportantSection from "./Components/ImportantSection";
 import NewTaskSection from "./Components/NewTaskSection";
 import TasksSection from "./Components/TasksSection";
 
 export default function App() {
+  //  variables
   const heading = "text-5xl font-[anton] drop-shadow-lg";
   const subheading = "text-xl font-[anton] drop-shadow";
   const tasks_div = "tasks flex flex-col gap-2 w-full text-justify";
@@ -12,6 +14,7 @@ export default function App() {
   const ul_styling = "list flex flex-col gap-1 font-light whitespace-nowrap";
   const task_styling = "overflow-x-auto no-scrollbar w-full";
 
+  //  Todo App
   return (
     <section className="App h-screen flex items-center justify-center text-gray-800">
       <div className="container p-4 h-full max-w-xl w-full flex flex-col gap-4 items-center justify-center">
@@ -40,6 +43,8 @@ export default function App() {
           tasks_div={tasks_div}
           subheading={subheading}
           ul_styling={ul_styling}
+          li_styling={li_styling}
+          task_styling={task_styling}
         />
 
         <NewTaskSection ul_styling={ul_styling} li_styling={li_styling} />
