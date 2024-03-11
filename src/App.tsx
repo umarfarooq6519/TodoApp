@@ -85,13 +85,17 @@ export default function App(): JSX.Element {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
+  const todosRatio = `${todos.filter((todo) => todo.completed).length} / ${
+    todos.length
+  }`;
+
   //  Todo App
   return (
     <section className="App h-screen flex items-center justify-center text-gray-800">
       <div className="container p-4 h-full max-w-xl w-full flex flex-col gap-4 items-center justify-center">
         <div className="header flex flex-col gap-1 text-center">
           <h1 className={heading}>Todo App</h1>
-          <p>0/2 Tasks Completed</p>
+          <p>{todosRatio} Tasks Completed</p>
         </div>
 
         <ImportantSection

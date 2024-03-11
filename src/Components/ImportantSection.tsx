@@ -36,7 +36,7 @@ export default function TasksSection(props: Props) {
           onClick={() => setTasks(!showTasks)}
         >
           {caretIcon}
-          <p className="text-sm">{showTasks ? `hide` : `show`}</p>
+          <p className="text-sm">{showTasks ? `Hide` : `Show`}</p>
         </button>
       </span>
 
