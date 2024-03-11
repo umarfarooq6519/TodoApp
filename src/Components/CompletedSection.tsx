@@ -34,8 +34,7 @@ export default function CompletedSection(props: Props) {
         className={`${props.ul_styling}  ${showCompleted ? `block` : `hidden`}`}
       >
         <li className={`${props.li_styling}`}>
-          <i className="fa-regular fa-circle-check"></i>
-          <span className={`${props.task_styling}`}>
+          <span className={`${props.task_styling} line-through`}>
             This is my second task.
           </span>
           <i className="fa-regular fa-bookmark"></i>

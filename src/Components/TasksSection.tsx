@@ -1,10 +1,16 @@
 import { useState } from "react";
+import {Todo} from "../App";
+
 interface Props {
   tasks_div: string;
   subheading: string;
   ul_styling: string;
   li_styling: string;
   task_styling: string;
+  todos: Todo[]; // Pass down todos state
+  handleSubmit: (text: string) => void; // Pass down handleSubmit function
+  ToggleCompleted: (id: number) => void; // Pass down ToggleCompleted function
+  deleteTodo: (id: number) => void; // Pass down deleteTodo function
 }
 
 export default function TasksSection(props: Props) {
@@ -30,20 +36,21 @@ export default function TasksSection(props: Props) {
       </span>
 
       <ul className={`${props.ul_styling} ${showTasks ? `block` : `hidden`}`}>
-        <li className={`${props.li_styling}`}>
-          <i className="fa-regular fa-circle-check"></i>
-          <span className={props.task_styling}>This is my second task.</span>
-          <i className="fa-regular fa-bookmark"></i>
-        </li>
-
-        <li className={props.li_styling}>
-          <i className="fa-regular fa-circle-check"></i>
-          <span className={props.task_styling}>
-            This is another task due. Try scrolling this section to see the rest
-            of the sentence.
-          </span>
-          <i className="fa-regular fa-bookmark"></i>
-        </li>
+        {props.todos.map((todo) => (
+          <li key={todo.id} className={`${props.li_styling}`}>
+            <i
+              className={`fa-regular ${
+                todo.completed ? "fa-check-circle" : "fa-circle"
+              }`}
+              onClick={() => props.ToggleCompleted(todo.id)}
+            ></i>
+            <span className={props.task_styling}>{todo.text}</span>
+            <i
+              className="fa-regular fa-trash-alt"
+              onClick={() => props.deleteTodo(todo.id)}
+            ></i>
+          </li>
+        ))}
       </ul>
     </div>
   );
