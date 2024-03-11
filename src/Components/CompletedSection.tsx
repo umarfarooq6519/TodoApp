@@ -48,7 +48,7 @@ export default function TasksSection(props: Props) {
             </span>
             <span className="flex items-center gap-4">
               <i
-                className="fa-regular fa-trash-alt"
+                className="fa-regular fa-trash-alt text-red-600"
                 onClick={() => props.deleteTodo(todo.id)}
               ></i>
             </span>

@@ -4,6 +4,7 @@ import CompletedSection from "./Components/CompletedSection";
 import ImportantSection from "./Components/ImportantSection";
 import NewTaskSection from "./Components/NewTaskSection";
 import TasksSection from "./Components/TasksSection";
+import Footer from "./Components/Footer";
 
 export interface Todo {
   id: number;
@@ -141,6 +142,7 @@ export default function App(): JSX.Element {
           ul_styling={ul_styling}
           li_styling={li_styling}
         />
+        <Footer />
       </div>
     </section>
   );

@@ -55,7 +55,7 @@ export default function TasksSection(props: Props) {
                 onClick={() => props.ToggleImportant(todo.id)}
               ></i>
               <i
-                className="fa-regular fa-trash-alt"
+                className="fa-regular fa-trash-alt text-red-600"
                 onClick={() => props.deleteTodo(todo.id)}
               ></i>
             </span>
