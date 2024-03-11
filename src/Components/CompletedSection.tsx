@@ -11,7 +11,7 @@ interface Props {
   handleSubmit: (text: string) => void; // Pass down handleSubmit function
   ToggleCompleted: (id: number) => void; // Pass down ToggleCompleted function
   deleteTodo: (id: number) => void; // Pass down deleteTodo function
-} 
+}
 
 export default function TasksSection(props: Props) {
   const [showTasks, setTasks] = useState(true);

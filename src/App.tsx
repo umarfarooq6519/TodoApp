@@ -30,6 +30,18 @@ export default function App(): JSX.Element {
       completed: false,
       important: false,
     },
+    {
+      id: Date.now(),
+      text: "Complete this Todo App",
+      completed: true,
+      important: false,
+    },
+    {
+      id: Date.now(),
+      text: "Don't forget this one!",
+      completed: false,
+      important: true,
+    },
   ]); //state for storing todo list
 
   const handleSubmit = (text: string): void => {
@@ -93,7 +105,6 @@ export default function App(): JSX.Element {
           ToggleCompleted={ToggleCompleted} // Pass down ToggleCompleted function
           deleteTodo={deleteTodo} // Pass down deleteTodo function
           ToggleImportant={ToggleImportant}
-
         />
 
         <TasksSection
