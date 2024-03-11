@@ -9,6 +9,7 @@ export interface Todo {
   id: number;
   text: string;
   completed: boolean;
+  important: boolean;
 }
 
 export default function App(): JSX.Element {
@@ -22,14 +23,21 @@ export default function App(): JSX.Element {
   const task_styling = "overflow-x-auto no-scrollbar w-full";
 
   // Managing Todos
-  const [todos, setTodos] = useState<Todo[]>([]); //state for storing todo list
-  const [text, setText] = useState<string>(""); //state for storing text
+  const [todos, setTodos] = useState<Todo[]>([
+    {
+      id: Date.now(),
+      text: "This is a sample Todo Task. Swipe this todo to see the rest of it. Pretty Cool Right?",
+      completed: false,
+      important: false,
+    },
+  ]); //state for storing todo list
 
   const handleSubmit = (text: string): void => {
     const newTodo: Todo = {
       id: Date.now(),
       text: text,
       completed: false,
+      important: false,
     };
 
     setTodos((prevTodos) => [...prevTodos, newTodo]);
@@ -42,6 +50,19 @@ export default function App(): JSX.Element {
           ? {
               ...todo,
               completed: !todo.completed,
+            }
+          : todo
+      )
+    );
+  };
+
+  const ToggleImportant = (id: number): void => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id
+          ? {
+              ...todo,
+              important: !todo.important,
             }
           : todo
       )
@@ -67,6 +88,12 @@ export default function App(): JSX.Element {
           ul_styling={ul_styling}
           li_styling={li_styling}
           task_styling={task_styling}
+          todos={todos} // Pass down todos state
+          handleSubmit={handleSubmit} // Pass down handleSubmit function
+          ToggleCompleted={ToggleCompleted} // Pass down ToggleCompleted function
+          deleteTodo={deleteTodo} // Pass down deleteTodo function
+          ToggleImportant={ToggleImportant}
+
         />
 
         <TasksSection
@@ -79,6 +106,7 @@ export default function App(): JSX.Element {
           handleSubmit={handleSubmit} // Pass down handleSubmit function
           ToggleCompleted={ToggleCompleted} // Pass down ToggleCompleted function
           deleteTodo={deleteTodo} // Pass down deleteTodo function
+          ToggleImportant={ToggleImportant}
         />
 
         <CompletedSection
@@ -87,6 +115,10 @@ export default function App(): JSX.Element {
           ul_styling={ul_styling}
           li_styling={li_styling}
           task_styling={task_styling}
+          todos={todos} // Pass down todos state
+          handleSubmit={handleSubmit} // Pass down handleSubmit function
+          ToggleCompleted={ToggleCompleted} // Pass down ToggleCompleted function
+          deleteTodo={deleteTodo} // Pass down deleteTodo function
         />
 
         <NewTaskSection
