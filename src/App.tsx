@@ -25,19 +25,19 @@ export default function App(): JSX.Element {
   // Managing Todos
   const [todos, setTodos] = useState<Todo[]>([
     {
-      id: Date.now(),
+      id: Math.random() * 100,
       text: "This is a sample Todo Task. Swipe this todo to see the rest of it. Pretty Cool Right?",
       completed: false,
       important: false,
     },
     {
-      id: Date.now(),
+      id: Math.random() * 100,
       text: "Complete this Todo App",
       completed: true,
       important: false,
     },
     {
-      id: Date.now(),
+      id: Math.random() * 100,
       text: "Don't forget this one!",
       completed: false,
       important: true,
