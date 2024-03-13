@@ -19,7 +19,7 @@ export default function NewTaskSection(props: Props): JSX.Element {
   };
 
   return (
-    <div className={`${props.ul_styling} w-full pt-2`}>
+    <div className={`${props.ul_styling} w-full`}>
       <form onSubmit={handleSubmit} className={`${props.li_styling} shadow-lg`}>
         <i className="fa-solid fa-caret-right"></i>
         <input

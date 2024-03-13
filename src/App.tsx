@@ -33,7 +33,7 @@ export default function App(): JSX.Element {
     },
     {
       id: Math.random() * 100,
-      text: "Complete this Todo App",
+      text: "Click on text to mark as complete",
       completed: true,
       important: false,
     },
@@ -93,8 +93,8 @@ export default function App(): JSX.Element {
   //  Todo App
   return (
     <section className="App h-screen flex items-center justify-center text-gray-800">
-      <div className="container p-4 h-full max-w-xl w-full flex flex-col gap-4 items-center justify-center">
-        <div className="header flex flex-col gap-1 text-center">
+      <div className="container p-4 h-full max-w-xl w-full flex flex-col gap-5 items-center justify-center">
+        <div className="header flex flex-col gap-1 text-center pb-4">
           <h1 className={heading}>Todo App</h1>
           <p>{todosRatio} Tasks Completed</p>
         </div>
@@ -125,7 +125,7 @@ export default function App(): JSX.Element {
           ToggleImportant={ToggleImportant}
         />
 
-        <CompletedSection
+        {/* <CompletedSection
           tasks_div={tasks_div}
           subheading={subheading}
           ul_styling={ul_styling}
@@ -135,8 +135,8 @@ export default function App(): JSX.Element {
           handleSubmit={handleSubmit} // Pass down handleSubmit function
           ToggleCompleted={ToggleCompleted} // Pass down ToggleCompleted function
           deleteTodo={deleteTodo} // Pass down deleteTodo function
-        />
-
+        /> */}
+        <hr className="w-full border-gray-700" />
         <NewTaskSection
           onSubmit={handleSubmit}
           ul_styling={ul_styling}

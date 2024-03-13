@@ -22,9 +22,7 @@ export default function TasksSection(props: Props) {
     <i className="fa-solid fa-caret-right fa-sm"></i>
   );
 
-  const TodosList = props.todos.filter(
-    (todo) => !todo.completed && !todo.important
-  );
+  const TodosList = props.todos.filter((todo) => !todo.important);
 
   return (
     <div className={props.tasks_div}>
@@ -43,17 +41,36 @@ export default function TasksSection(props: Props) {
       <ul className={`${props.ul_styling} ${showTasks ? `block` : `hidden`}`}>
         {TodosList.map((todo) => (
           <li key={todo.id} className={`${props.li_styling}`}>
+            {todo.completed ? (
+              <i
+                className="fa-solid fa-circle-check"
+                onClick={() => {
+                  props.ToggleCompleted(todo.id);
+                }}
+              ></i>
+            ) : (
+              <i
+                className="fa-regular fa-circle-check"
+                onClick={() => {
+                  props.ToggleCompleted(todo.id);
+                }}
+              ></i>
+            )}
             <span
-              onClick={() => props.ToggleCompleted(todo.id)}
-              className={props.task_styling}
+              className={`${props.task_styling} ${
+                todo.completed ? `line-through` : null
+              }`}
             >
               {todo.text}
             </span>
             <span className="flex items-center gap-4 pl-1">
-              <i
-                className="fa-regular fa-bookmark"
-                onClick={() => props.ToggleImportant(todo.id)}
-              ></i>
+              {!todo.completed ? (
+                <i
+                  className="fa-regular fa-bookmark"
+                  onClick={() => props.ToggleImportant(todo.id)}
+                ></i>
+              ) : null}
+
               <i
                 className="fa-regular fa-trash-alt text-red-600"
                 onClick={() => props.deleteTodo(todo.id)}
