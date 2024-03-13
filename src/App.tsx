@@ -1,6 +1,6 @@
 //  importing components
 import { useState } from "react";
-import CompletedSection from "./Components/CompletedSection";
+// import CompletedSection from "./Components/CompletedSection";
 import ImportantSection from "./Components/ImportantSection";
 import NewTaskSection from "./Components/NewTaskSection";
 import TasksSection from "./Components/TasksSection";
@@ -33,7 +33,7 @@ export default function App(): JSX.Element {
     },
     {
       id: Math.random() * 100,
-      text: "Click on text to mark as complete",
+      text: "Click on check icon to mark as complete",
       completed: true,
       important: false,
     },

@@ -22,9 +22,7 @@ export default function TasksSection(props: Props) {
     <i className="fa-solid fa-caret-right fa-sm"></i>
   );
 
-  const importantTodos = props.todos.filter(
-    (todo) => todo.important && !todo.completed
-  );
+  const importantTodos = props.todos.filter((todo) => todo.important);
 
   return (
     <div className={props.tasks_div}>
@@ -43,9 +41,26 @@ export default function TasksSection(props: Props) {
       <ul className={`${props.ul_styling} ${showTasks ? `block` : `hidden`}`}>
         {importantTodos.map((todo) => (
           <li key={todo.id} className={`${props.li_styling}`}>
+            {todo.completed ? (
+              <i
+                className="fa-solid fa-circle-check"
+                onClick={() => {
+                  props.ToggleCompleted(todo.id);
+                }}
+              ></i>
+            ) : (
+              <i
+                className="fa-regular fa-circle-check"
+                onClick={() => {
+                  props.ToggleCompleted(todo.id);
+                }}
+              ></i>
+            )}
             <span
               onClick={() => props.ToggleCompleted(todo.id)}
-              className={`${props.task_styling}`}
+              className={`${props.task_styling} ${
+                todo.completed ? `line-through` : null
+              }`}
             >
               {todo.text}
             </span>
