@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { useState } from "react";
 import { Todo } from "../App";
 
@@ -56,12 +57,11 @@ export default function TasksSection(props: Props) {
                 }}
               ></i>
             )}
-            <span
-              className={`${props.task_styling} ${
-                todo.completed ? `line-through` : null
-              }`}
-            >
-              {todo.text}
+            <span className={`${props.task_styling} flex flex-col`}>
+              <span className={`${todo.completed ? `line-through` : null}`}>
+                {todo.text}
+              </span>
+              <span className="text-xs">{todo.time}</span>
             </span>
             <span className="flex items-center gap-4 pl-1">
               {!todo.completed ? (

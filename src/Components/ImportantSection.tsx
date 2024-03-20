@@ -50,18 +50,17 @@ export default function TasksSection(props: Props) {
               ></i>
             ) : (
               <i
-                className="fa-regular fa-circle-check"
+                className="fa-regular fa-circle-check "
                 onClick={() => {
                   props.ToggleCompleted(todo.id);
                 }}
               ></i>
             )}
-            <span
-              className={`${props.task_styling} ${
-                todo.completed ? `line-through` : null
-              }`}
-            >
-              {todo.text}
+            <span className={`${props.task_styling} flex flex-col`}>
+              <span className={`${todo.completed ? `line-through` : null}`}>
+                {todo.text}
+              </span>
+              <span className="text-xs">{todo.time}</span>
             </span>
             <span className="flex items-center gap-4 pl-1">
               <i

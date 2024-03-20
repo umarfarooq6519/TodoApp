@@ -23,14 +23,14 @@ export default function NewTaskSection(props: Props): JSX.Element {
   };
 
   return (
-    <div className={`${props.ul_styling} w-full items-center`}>
+    <div className={`${props.ul_styling} w-full pt-4 items-center`}>
       <form onSubmit={handleSubmit} className={props.li_styling}>
         <i className="fa-solid fa-caret-right"></i>
         <input
           type="text"
           value={inputValue} // Add value attribute
           onChange={handleChange} // Add onChange attribute
-          className={`border-0 p-0 w-full bg-transparent font-normal focus:ring-0`}
+          className={`border-0 p-0 w-full py-1.5 bg-transparent font-normal focus:ring-0`}
         />
         <button type="submit" className="font-[anton]">
           <i className="fa-solid fa-plus"></i> Add
