@@ -20,7 +20,7 @@ export default function App(): JSX.Element {
   const subheading = "text-xl font-[anton] drop-shadow";
   const tasks_div = "tasks flex flex-col gap-2 w-full text-justify";
   const li_styling =
-    "flex items-center justify-between gap-2 shadow border border-current w-full px-3 py-1 rounded-lg bg-[#fffe]";
+    "flex items-center justify-between gap-2 shadow border border-current w-full px-3 py-1 rounded-lg bg-gray-100";
   const ul_styling = "list flex flex-col gap-1 font-light whitespace-nowrap";
   const task_styling = "overflow-x-auto overflow-y-hidden no-scrollbar w-full";
 
