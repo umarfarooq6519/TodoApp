@@ -66,25 +66,26 @@ export default function TasksSection(props: Props) {
 
       <ul className={`${props.ul_styling} ${showTasks ? `block` : `hidden`}`}>
         {TodosList.map((todo) => (
-          <span className="bg-current rounded-lg pb-1">
-            <li key={todo.id} className={`${props.li_styling}`}>
-              {checkIcon(todo)}
-              <span className={`${props.task_styling} flex flex-col`}>
-                <span className={`${todo.completed ? `line-through` : null}`}>
-                  {todo.text}
-                </span>
-                <span className="text-xs">{todo.time}</span>
+          <li
+            key={todo.id}
+            className={`${props.li_styling} border-b-4 border-current`}
+          >
+            {checkIcon(todo)}
+            <span className={`${props.task_styling} flex flex-col`}>
+              <span className={`${todo.completed ? `line-through` : null}`}>
+                {todo.text}
               </span>
-              <span className="flex items-center gap-4 pl-1">
-                {bookmarkIcon(todo)}
+              <span className="text-xs">{todo.time}</span>
+            </span>
+            <span className="flex items-center gap-4 pl-1">
+              {bookmarkIcon(todo)}
 
-                <i
-                  className="fa-regular fa-trash-alt text-red-600"
-                  onClick={() => props.deleteTodo(todo.id)}
-                ></i>
-              </span>
-            </li>
-          </span>
+              <i
+                className="fa-regular fa-trash-alt text-red-600"
+                onClick={() => props.deleteTodo(todo.id)}
+              ></i>
+            </span>
+          </li>
         ))}
       </ul>
     </div>
