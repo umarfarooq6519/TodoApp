@@ -132,7 +132,7 @@ export default function App(): JSX.Element {
 
   //  Todo App
   return (
-    <section className="App h-screen min-h-screen flex items-center justify-center text-gray-700">
+    <section className="App min-h-screen flex items-center justify-center text-gray-700">
       <div className="container p-2 py-10 sm:p-4 h-full max-w-xl w-full flex flex-col gap-5 items-center justify-center">
         <div className="header flex flex-col w-full gap-8 text-center pb-4">
           <h1 className={`${heading}`}>Todo App</h1>
