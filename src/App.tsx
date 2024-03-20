@@ -137,11 +137,11 @@ export default function App(): JSX.Element {
         <div className="header flex flex-col w-full gap-8 text-center pb-4">
           <h1 className={`${heading}`}>Todo App</h1>
           <div className={`subheadings flex justify-between font-light`}>
-            <span className="border-b-4 border-gray-100 bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
+            <span className=" bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
               <i className="fa-solid fa-calendar mr-2"></i>
               {fullDate}
             </span>
-            <span className="border-b-4 border-gray-100 bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
+            <span className=" bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
               <i className="fa-solid fa-user-check mr-2"></i>
               {todosRatio} Completed
             </span>
