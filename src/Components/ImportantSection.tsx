@@ -57,7 +57,6 @@ export default function TasksSection(props: Props) {
               ></i>
             )}
             <span
-              onClick={() => props.ToggleCompleted(todo.id)}
               className={`${props.task_styling} ${
                 todo.completed ? `line-through` : null
               }`}
