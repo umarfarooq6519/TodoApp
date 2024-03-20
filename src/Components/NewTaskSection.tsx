@@ -26,14 +26,14 @@ export default function NewTaskSection(props: Props): JSX.Element {
     <div className={`${props.ul_styling} w-full pt-4 items-center `}>
       <form
         onSubmit={handleSubmit}
-        className={`${props.li_styling} border-b-4 border-current`}
+        className={`${props.li_styling} border-b-4 border-current !bg-gray-700 text-gray-100 border-t-0 border-l-0 border-r-0`}
       >
         <i className="fa-solid fa-caret-right"></i>
         <input
           type="text"
           value={inputValue} // Add value attribute
           onChange={handleChange} // Add onChange attribute
-          className={`border-0 p-0 w-full py-1.5 bg-transparent font-normal focus:ring-0`}
+          className={`border-0 p-0 w-full placeholder-gray-300 py-1.5 bg-transparent font-normal focus:ring-0`}
           placeholder="Write a new task"
         />
         <button type="submit">
