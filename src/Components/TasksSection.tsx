@@ -33,7 +33,7 @@ export default function TasksSection(props: Props) {
       ></i>
     ) : (
       <i
-        className="fa-regular fa-circle-check"
+        className="fa-regular fa-circle"
         onClick={() => {
           props.ToggleCompleted(todo.id);
         }}
