@@ -23,6 +23,31 @@ export default function TasksSection(props: Props) {
     <i className="fa-solid fa-caret-right fa-sm"></i>
   );
 
+  const checkIcon = (todo: Todo) =>
+    todo.completed ? (
+      <i
+        className="fa-solid fa-circle-check"
+        onClick={() => {
+          props.ToggleCompleted(todo.id);
+        }}
+      ></i>
+    ) : (
+      <i
+        className="fa-regular fa-circle-check"
+        onClick={() => {
+          props.ToggleCompleted(todo.id);
+        }}
+      ></i>
+    );
+
+  const bookmarkIcon = (todo: Todo) =>
+    !todo.completed ? (
+      <i
+        className="fa-regular fa-bookmark"
+        onClick={() => props.ToggleImportant(todo.id)}
+      ></i>
+    ) : null;
+
   const TodosList = props.todos.filter((todo) => !todo.important);
 
   return (
@@ -41,42 +66,25 @@ export default function TasksSection(props: Props) {
 
       <ul className={`${props.ul_styling} ${showTasks ? `block` : `hidden`}`}>
         {TodosList.map((todo) => (
-          <li key={todo.id} className={`${props.li_styling}`}>
-            {todo.completed ? (
-              <i
-                className="fa-solid fa-circle-check"
-                onClick={() => {
-                  props.ToggleCompleted(todo.id);
-                }}
-              ></i>
-            ) : (
-              <i
-                className="fa-regular fa-circle-check"
-                onClick={() => {
-                  props.ToggleCompleted(todo.id);
-                }}
-              ></i>
-            )}
-            <span className={`${props.task_styling} flex flex-col`}>
-              <span className={`${todo.completed ? `line-through` : null}`}>
-                {todo.text}
+          <span className="bg-current rounded-lg pb-1">
+            <li key={todo.id} className={`${props.li_styling}`}>
+              {checkIcon(todo)}
+              <span className={`${props.task_styling} flex flex-col`}>
+                <span className={`${todo.completed ? `line-through` : null}`}>
+                  {todo.text}
+                </span>
+                <span className="text-xs">{todo.time}</span>
               </span>
-              <span className="text-xs">{todo.time}</span>
-            </span>
-            <span className="flex items-center gap-4 pl-1">
-              {!todo.completed ? (
-                <i
-                  className="fa-regular fa-bookmark"
-                  onClick={() => props.ToggleImportant(todo.id)}
-                ></i>
-              ) : null}
+              <span className="flex items-center gap-4 pl-1">
+                {bookmarkIcon(todo)}
 
-              <i
-                className="fa-regular fa-trash-alt text-red-600"
-                onClick={() => props.deleteTodo(todo.id)}
-              ></i>
-            </span>
-          </li>
+                <i
+                  className="fa-regular fa-trash-alt text-red-600"
+                  onClick={() => props.deleteTodo(todo.id)}
+                ></i>
+              </span>
+            </li>
+          </span>
         ))}
       </ul>
     </div>
