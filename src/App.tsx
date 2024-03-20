@@ -20,7 +20,7 @@ export default function App(): JSX.Element {
   const subheading = "text-xl font-[anton] drop-shadow";
   const tasks_div = "tasks flex flex-col gap-2 w-full text-justify";
   const li_styling =
-    "flex items-center justify-between gap-2 shadow border border-current w-full px-3 py-1 rounded-lg bg-gray-100";
+    "flex items-center justify-between gap-2 shadow border border-current w-full px-3 py-1 rounded-lg bg-white";
   const ul_styling = "list flex flex-col gap-1 font-light whitespace-nowrap";
   const task_styling = "overflow-x-auto overflow-y-hidden no-scrollbar w-full";
 
@@ -134,7 +134,7 @@ export default function App(): JSX.Element {
   return (
     <section className="App min-h-screen flex items-center justify-center text-gray-700">
       <div className="container p-2 py-10 sm:p-4 h-full max-w-xl w-full flex flex-col gap-5 items-center justify-center">
-        <div className="header flex flex-col w-full gap-6 text-center pb-4">
+        <div className="header flex flex-col w-full gap-8 text-center pb-4">
           <h1 className={`${heading}`}>Todo App</h1>
           <div className={`subheadings flex justify-between font-light`}>
             <span className="border border-current shadow-lg px-3 py-0.5 rounded-lg">
