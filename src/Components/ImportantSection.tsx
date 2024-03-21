@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Todo } from "../App";
 
 interface Props {
@@ -16,6 +16,8 @@ interface Props {
 
 export default function TasksSection(props: Props) {
   const [showTasks, setTasks] = useState(true);
+  const [showToast, setShowToast] = useState(false); // State to control toast visibility
+
   const caretIcon = showTasks ? (
     <i className="fa-solid fa-caret-down fa-sm"></i>
   ) : (
@@ -40,6 +42,21 @@ export default function TasksSection(props: Props) {
     );
 
   const importantTodos = props.todos.filter((todo) => todo.important);
+
+  useEffect(() => {
+    let toastTimer: ReturnType<typeof setTimeout>;
+
+    if (showToast) {
+      // Set a timer to hide the toast after a few seconds (e.g., 3 seconds)
+      toastTimer = setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    }
+
+    return () => {
+      clearTimeout(toastTimer); // Clear the timer on component unmount or when toast is hidden
+    };
+  }, [showToast]);
 
   return (
     <div className={props.tasks_div}>
@@ -76,11 +93,26 @@ export default function TasksSection(props: Props) {
               ></i>
               <i
                 className="fa-regular fa-trash-alt text-red-600"
-                onClick={() => props.deleteTodo(todo.id)}
+                onClick={() => {
+                  props.deleteTodo(todo.id);
+                  setShowToast(true); // Show the toast when a task is deleted
+                }}
               ></i>
             </span>
           </li>
         ))}
+        {showToast && (
+          <div className="toast toast-start">
+            <div
+              className="alert alert-info border-0 
+          px-2 py-1 rounded-xl bg-red-500"
+            >
+              <span className="flex items-center gap-2">
+                <i className="fa-solid fa-circle-xmark"></i> Task Removed
+              </span>
+            </div>
+          </div>
+        )}
       </ul>
     </div>
   );

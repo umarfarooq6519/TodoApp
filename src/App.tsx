@@ -16,12 +16,12 @@ export interface Todo {
 
 export default function App(): JSX.Element {
   //  variables
-  const heading = "text-5xl font-[anton] drop-shadow-lg";
-  const subheading = "text-xl font-[anton] drop-shadow";
+  const heading = "text-5xl font-black tracking-wide drop-shadow-lg";
+  const subheading = "text-xl font-extrabold drop-shadow";
   const tasks_div = "tasks flex flex-col gap-2 w-full text-justify";
   const li_styling =
     "flex items-center justify-between gap-2 shadow border border-current w-full px-3 py-1 rounded-lg bg-[#FFFA]";
-  const ul_styling = "list flex flex-col gap-1 font-light whitespace-nowrap";
+  const ul_styling = "list flex flex-col gap-1  whitespace-nowrap";
   const task_styling = "overflow-x-auto overflow-y-hidden no-scrollbar w-full";
 
   const currentTime = new Date();
@@ -136,12 +136,14 @@ export default function App(): JSX.Element {
       <div className="container p-2 py-10 sm:p-4 h-full max-w-xl w-full flex flex-col gap-5 items-center justify-center">
         <div className="header flex flex-col w-full gap-8 text-center pb-4">
           <h1 className={`${heading}`}>Todo App</h1>
-          <div className={`subheadings flex justify-between font-light`}>
-            <span className=" bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
+          <div
+            className={`subheadings flex text-sm justify-between font-light`}
+          >
+            <span className=" bg-gray-700 text-gray-100 shadow-lg px-4 py-1 rounded-lg">
               <i className="fa-solid fa-calendar mr-2"></i>
               {fullDate}
             </span>
-            <span className=" bg-gray-700 text-gray-100 shadow-lg px-3 py-0.5 rounded-lg">
+            <span className=" bg-gray-700 text-gray-100 shadow-lg px-4 py-1 rounded-lg">
               <i className="fa-solid fa-user-check mr-2"></i>
               {todosRatio} Completed
             </span>
